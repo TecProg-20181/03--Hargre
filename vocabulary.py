@@ -14,12 +14,16 @@ class Vocabulary:
         """
         print("Loading word list from file...")
         # inFile: file
-        inFile = open(self.WORDLIST_FILENAME, 'r')
-        # line: string
-        line = inFile.readline()
-        # wordlist: list of strings
-        self.wordlist = str.split(line)
-        print("  ", len(self.wordlist), "words loaded.")
+        try:
+            inFile = open(self.WORDLIST_FILENAME, 'r')
+            # line: string
+            line = inFile.readline()
+            # wordlist: list of strings
+            self.wordlist = str.split(line)
+            print("  ", len(self.wordlist), "words loaded.")
+        except IOError:
+            print("Could not open file!")
+            quit()
 
     def getRandomWord(self):
         word = random.choice(self.wordlist).lower()
