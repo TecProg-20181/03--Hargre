@@ -65,6 +65,14 @@ class Hangman:
         else:
             print('Sorry, you ran out of guesses. The word was ', self.secretWord, '.')
 
+    def getLetter(self):
+        letter = input('Please guess a letter: ')
+        
+        while letter not in string.ascii_letters:
+            letter = input('Invalid input. Characters from a-z only, please: ')
+
+        return letter.lower()
+
     def mainLoop(self):
         while not self.isWordGuessed() and self.remainingGuesses > 0:
             print('You have ', self.remainingGuesses, 'guesses left.')
@@ -72,7 +80,8 @@ class Hangman:
             available = self.getAvailableLetters()
             print('Available letters', available)
 
-            letter = input('Please guess a letter: ')
+            letter = self.getLetter()
+
             if letter in self.lettersGuessed:
                 print('Oops! You have already guessed that letter: ')
             elif letter in self.secretWord:
