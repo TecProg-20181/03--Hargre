@@ -12,10 +12,14 @@ class Hangman:
         self.lettersGuessed = []
 
     def getValidWord(self):
-        word = self.vocabulary.getRandomWord()
-        while not self.isValidWord():
-            self.secretWord = self.vocabulary.getRandomWord()
-        return word
+        try:
+            word = self.vocabulary.getRandomWord()
+            while not self.isValidWord():
+                self.secretWord = self.vocabulary.getRandomWord()
+            return word
+        except IndexError:
+            print("Can't choose a word, emtpy file!!!")
+            quit()
 
     def isValidWord(self):
         hasMoreGuessesThanUniqueLetters = self.MAX_GUESSES > self.getAmountOfUniqueLetters()
