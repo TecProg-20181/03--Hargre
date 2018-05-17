@@ -10,7 +10,7 @@ Projeto
 ------
 
 O projeto contém dois arquivos principais.
-O código do programa está no arquivo `hang.py`.
+O código do programa está dividido nos arquivos `vocabulary.py` e `hang.py`, contendo as classes que representam o jogo, e `main.py`, que funciona de ponto de entrada para iniciar o jogo.
 É necessário um arquivo que contenha as palavras que podem ser escolhidas.
 Nesse projeto estão dois arquivos de exemplo `words.txt` e `palavras.txt`.
 O arquivo a ser utilizado como pool de palavras está designado no código-fonte.
@@ -21,6 +21,6 @@ Rodar o projeto
 Para executar o projeto, use o comando:
 
 ```
-python hang.py
+python main.py
 ```
 
